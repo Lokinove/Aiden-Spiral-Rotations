@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/StriveMath/p5.strive@0.0.31/dist/strive.js"></script>
+
+    <script>
+        Sk.builtins.WIDTH_W = 400
+        Sk.builtins.HEIHGT_H = 400
+        $(document).ready(() => {
+            resetScreen()
+        })
+
+        function changeScreen(sel) {
+            localStorage.setItem("screen", sel.value)
+            resetScreen()
+        }
+
+        function resetScreen() {
+            const screen = localStorage.getItem("screen")
+            if (screen) {
+                if (screen === "phone") {
+                    $("select").val("phone")
+                    $("#phone").addClass("smartphone")
+
+
+                } else {
+                    $("select").val("full")
+                    $("#phone").removeClass("smartphone")
+
+
+
+
+                }
+
+            } else {
+                localStorage.setItem("screen", "phone")
+                resetScreen()
+            }
+        }
+    </script>
+
+</head>
+<body id="content">
+<select name="screen_type" id="screen_type" onchange="changeScreen(this)" class="select">
+    <option value="phone">Phone</option>
+    <option value="full">Full</option>
+</select>
+<div class="" id="phone">
+    <div class="content" id="content-container">
+        <pre id="output" style="display: none;"></pre>
+        <div id="sketch-holder"></div>
+    </div>
+</div>
+</body>
+</html>
