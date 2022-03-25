@@ -40,3 +40,5 @@ function resetScreen() {
         resetScreen()
     }
 }
+
+//TODO: Write code to disable the phone vs full dropdown and just have it full screen when there is a query paramater
