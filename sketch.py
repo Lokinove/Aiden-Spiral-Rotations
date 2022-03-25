@@ -1,15 +1,11 @@
 from p5 import *
 
 
-PHONE_WIDTH = 360
-PHONE_HEIGHT = 640
 
-x = 350
-y = 450
 
 
 def setup():
-  createCanvas(PHONE_WIDTH,PHONE_HEIGHT)
+  createCanvas(windowWidth,windowHeight)
   background("red")
   drawTickAxes()
 
