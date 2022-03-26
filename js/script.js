@@ -1,5 +1,6 @@
 $(document).ready(() => {
     resetScreen()
+    checkIfSocial();
 })
 
 function changeScreen(sel) {
@@ -42,3 +43,13 @@ function resetScreen() {
 }
 
 //TODO: Write code to disable the phone vs full dropdown and just have it full screen when there is a query paramater
+
+function checkIfSocial() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    
+    if(params.share && params.share === '1') {
+        $('#screen_type').remove();
+        setFullScreen();
+    }
+}
